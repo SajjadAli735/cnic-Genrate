@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Premium Form</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #c8d8ff, #f3e8ff);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .container {
+        width: 420px;
+        padding: 35px;
+        border-radius: 25px;
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+        animation: fadeIn 0.7s ease-in-out;
+      }
+
+      h2 {
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 25px;
+        font-weight: 600;
+        color: #1e293b;
+      }
+
+      .field {
+        position: relative;
+        margin-bottom: 28px;
+      }
+
+      .field input {
+        width: 100%;
+        padding: 14px 45px 14px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.45);
+        backdrop-filter: blur(5px);
+        font-size: 15px;
+        transition: 0.3s;
+      }
+
+      .field input:focus {
+        border-color: #4f46e5;
+        box-shadow: 0 0 10px rgba(79, 70, 229, 0.4);
+        background: rgba(255, 255, 255, 0.75);
+        outline: none;
+      }
+
+      .field label {
+        position: absolute;
+        top: 50%;
+        left: 16px;
+        transform: translateY(-50%);
+        font-size: 14px;
+        color: #6b7280;
+        pointer-events: none;
+        transition: 0.3s ease;
+        background: transparent;
+        padding: 0 4px;
+      }
+
+      .field input:focus + label,
+      .field input:not(:placeholder-shown) + label {
+        top: 8px;
+        font-size: 12px;
+        color: #4f46e5;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 5px;
+      }
+
+      .icon {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 16px;
+        color: #4b5563;
+      }
+
+      b {
+        font-size: 12px;
+        color: red;
+        margin-top: -18px;
+        display: block;
+        height: 16px;
+      }
+
+      button {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #4f46e5, #9333ea);
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 10px;
+        box-shadow: 0 6px 18px rgba(79, 70, 229, 0.5);
+        transition: 0.25s ease-in-out;
+        letter-spacing: 1px;
+      }
+
+      button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(79, 70, 229, 0.7);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(25px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 450px) {
+        .container {
+          width: 100%;
+          padding: 25px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>User Registration</h2>
+
+      <div class="field">
+        <input type="text" id="userName" placeholder=" " />
+        <label>Your Full Name</label>
+        <i class="fa-solid fa-user icon"></i>
+      </div>
+      <b id="nameError"></b>
+
+      <div class="field">
+        <input type="email" id="Email" placeholder=" " />
+        <label>Email Address</label>
+        <i class="fa-solid fa-envelope icon"></i>
+      </div>
+      <b id="emailError"></b>
+
+      <div class="field">
+        <input type="number" id="age" placeholder=" " />
+        <label>Age</label>
+        <i class="fa-solid fa-calendar icon"></i>
+      </div>
+      <b id="ageError"></b>
+
+      <div class="field">
+        <input type="password" id="Password" placeholder=" " />
+        <label>Password</label>
+        <i class="fa-solid fa-lock icon"></i>
+      </div>
+      <b id="passwordError"></b>
+
+      <div class="field">
+        <input type="text" id="Contactno" placeholder=" " />
+        <label>Contact Number</label>
+        <i class="fa-solid fa-phone icon"></i>
+      </div>
+      <b id="ContactnoError"></b>
+
+      <div class="field">
+        <input type="text" id="Cnic" readonly placeholder=" " />
+        <label>Generated CNIC</label>
+        <i class="fa-solid fa-id-card icon"></i>
+      </div>
+
+      <button onclick="submit()">Submit</button>
+    </div>
+
+    <script src="cnicGenerator.JS"></script>
+  </body>
+</html>
